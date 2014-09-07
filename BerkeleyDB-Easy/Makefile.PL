@@ -23,4 +23,15 @@ WriteMakefile(
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES => 'BerkeleyDB-Easy-*' },
+    (eval { ExtUtils::MakeMaker->VERSION(6.46) } ? (META_MERGE => {
+      'meta-spec' => { version => 2 },
+       resources => {
+         repository => {
+             type => 'git',
+             url  => 'https://github.com/robschaber/BerkeleyDB-Easy.git',
+             web  => 'https://github.com/robschaber/BerkeleyDB-Easy',
+         },
+     }})
+     : ()
+    ),
 );
